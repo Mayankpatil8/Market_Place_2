@@ -1,26 +1,25 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const morgan = require('morgan');
+const express = require("express");
+const mongoose = require("mongoose");
+const morgan = require("morgan");
 const cors = require("cors");
-require('dotenv').config();
+require("dotenv").config();
 
 const app = express();
 
-// 🔥 CORS FIRST
-app.use(cors({
-  origin: [
-    "https://marketplace1.netlify.app",
-    "http://localhost:3000"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+// 🔥 ABSOLUTE CORS FIX (allow all for now)
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://marketplace1.netlify.app");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-// 🔥 Handle preflight explicitly
-app.options("*", cors());
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
 
 app.use(express.json());
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
 // ✅ ROUTES (all under /api)
 app.use('/api/auth', require('./routes/auth'));
