@@ -6,8 +6,16 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors({ origin: 'https://market-place-2-iga4.onrender.com', credentials: true }));
-app.use(express.json({ limit: '5mb' }));
+
+app.use(cors({
+  origin: [
+    "https://marketplace1.netlify.app",
+    "https://market-place-2-iga4.onrender.com",
+    "http://localhost:3000"
+  ],
+  credentials: true,
+}));
+app.use(express.json());
 app.use(morgan('dev'));
 
 app.use('/api/auth', require('./routes/auth'));
