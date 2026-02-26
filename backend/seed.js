@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/marketplace';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://patilmayank2003_db_user:5PUi9F6n7J4xZnIf@cluster0.jobxuv5.mongodb.net/';
 
 mongoose.connect(MONGO_URI).then(() => console.log('Connected to MongoDB')).catch(err => { console.error(err); process.exit(1); });
 

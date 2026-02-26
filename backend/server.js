@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'https://market-place-2-iga4.onrender.com', credentials: true }));
 app.use(express.json({ limit: '5mb' }));
 app.use(morgan('dev'));
 
@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/marketplace')
+mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://patilmayank2003_db_user:5PUi9F6n7J4xZnIf@cluster0.jobxuv5.mongodb.net/')
   .then(() => {
     console.log('✅ MongoDB connected');
     app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
