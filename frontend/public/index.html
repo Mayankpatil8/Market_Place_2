@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c0f1a" />
+    <meta name="description" content="IndustrialHub — Europe's Premier B2B Industrial Marketplace. Certified. Compliant. Connected." />
+    <title>IndustrialHub — Industrial Commerce Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0}
+      body{background:#0c0f1a;font-family:'DM Sans',sans-serif}
+      #splash{position:fixed;inset:0;background:#0c0f1a;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity 0.6s ease,visibility 0.6s ease}
+      #splash.fade{opacity:0;visibility:hidden}
+      .splash-inner{text-align:center;animation:splashIn 0.6s ease}
+      .splash-mark{width:72px;height:72px;margin:0 auto 20px;background:linear-gradient(135deg,#c9a84c,#e8c87a);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 0 48px rgba(201,168,76,0.35)}
+      .splash-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#e8e8e2;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px}
+      .splash-tag{font-size:11px;color:#6b7280;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:28px}
+      .splash-bar{width:160px;height:1px;background:rgba(255,255,255,0.08);margin:0 auto;overflow:hidden;border-radius:1px}
+      .splash-fill{height:100%;background:linear-gradient(90deg,#c9a84c,#e8c87a);animation:fillBar 1.6s ease forwards}
+      @keyframes splashIn{from{opacity:0;transform:scale(0.94)}to{opacity:1;transform:scale(1)}}
+      @keyframes fillBar{from{width:0}to{width:100%}}
+    </style>
+  </head>
+  <body>
+    <div id="splash">
+      <div class="splash-inner">
+        <div class="splash-mark">⚙</div>
+        <div class="splash-name">IndustrialHub</div>
+        <div class="splash-tag">European Industrial Commerce</div>
+        <div class="splash-bar"><div class="splash-fill"></div></div>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script>
+      setTimeout(function(){
+        var s=document.getElementById('splash');
+        if(s){s.classList.add('fade');setTimeout(function(){s&&s.remove()},700)}
+      },1800);
+    </script>
+  </body>
+</html>

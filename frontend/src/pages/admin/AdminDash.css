@@ -1,0 +1,7 @@
+.admin-dash { max-width: 1200px; }
+.ad-card-title { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 20px; letter-spacing: -0.01em; }
+.rev-grid { display: flex; flex-direction: column; gap: 0; }
+.rev-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.rev-row:last-child { border-bottom: none; }
+.rev-label { font-size: 13px; color: var(--text-2); }
+.rev-val { font-size: 14px; font-weight: 800; }

@@ -1,0 +1,29 @@
+{
+  "name": "marketplace-frontend",
+  "version": "2.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.0",
+    "axios": "^1.4.0",
+    "recharts": "^2.7.2",
+    "react-toastify": "^9.1.3",
+    "react-icons": "^4.10.1",
+    "react-scripts": "5.0.1",
+    "framer-motion": "^10.16.4",
+    "react-countup": "^6.4.2",
+    "react-intersection-observer": "^9.5.2",
+    "react-hot-toast": "^2.4.1",
+    "date-fns": "^2.30.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "proxy": "http://localhost:5000",
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+  }
+}
