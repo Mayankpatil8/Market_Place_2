@@ -1,20 +1,25 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+
 const morgan = require('morgan');
 require('dotenv').config();
 
 const app = express();
 
 
+const cors = require("cors");
+
 app.use(cors({
   origin: [
-    "https://marketplace1.netlify.app",
-    "https://market-place-2-iga4.onrender.com",
-    "http://localhost:3000"
+    "https://marketplace1.netlify.app",      // your Netlify frontend
+    "https://market-place-2-iga4.onrender.com", // your Render backend (optional)
+    "http://localhost:3000"                   // local dev
   ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }));
+
 app.use(express.json());
 app.use(morgan('dev'));
 
