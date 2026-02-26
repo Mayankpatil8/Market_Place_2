@@ -1,28 +1,28 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
 const morgan = require('morgan');
+const cors = require("cors");
 require('dotenv').config();
 
 const app = express();
 
-
-const cors = require("cors");
-
+// 🔥 CORS FIRST
 app.use(cors({
   origin: [
-    "https://marketplace1.netlify.app",      // your Netlify frontend
-    "https://market-place-2-iga4.onrender.com", // your Render backend (optional)
-    "http://localhost:3000"                   // local dev
+    "https://marketplace1.netlify.app",
+    "http://localhost:3000"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
 }));
+
+// 🔥 Handle preflight explicitly
+app.options("*", cors());
 
 app.use(express.json());
 app.use(morgan('dev'));
 
+// ✅ ROUTES (all under /api)
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/orders', require('./routes/orders'));
@@ -35,7 +35,9 @@ app.use('/api/notifications', require('./routes/notifications'));
 app.use('/api/certifications', require('./routes/certifications'));
 app.use('/api/consulting', require('./routes/consulting'));
 
-app.get('/api/health', (req, res) => res.json({ status: 'OK', version: '2.0.0', timestamp: new Date() }));
+app.get('/api/health', (req, res) =>
+  res.json({ status: 'OK', version: '2.0.0', timestamp: new Date() })
+);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -43,9 +45,13 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://patilmayank2003_db_user:5PUi9F6n7J4xZnIf@cluster0.jobxuv5.mongodb.net/')
+
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('✅ MongoDB connected');
     app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
   })
-  .catch(err => { console.error('❌ DB Error:', err.message); process.exit(1); });
+  .catch(err => {
+    console.error('❌ DB Error:', err.message);
+    process.exit(1);
+  });
