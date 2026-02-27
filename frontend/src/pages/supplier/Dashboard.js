@@ -158,7 +158,7 @@ function MembershipCard({ membership }) {
     </div>
   );
 }
-
+  
 export default function SupplierDashboard() {
   const { user } = useAuth();
   const [productCount,  setProductCount]  = useState(0);

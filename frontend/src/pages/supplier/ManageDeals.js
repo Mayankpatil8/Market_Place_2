@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { FiPlus } from 'react-icons/fi';
 
 const EMPTY = {
-  title: '', description: '', totalValue: '', dealType: 'b2b',
+  title: '', description: '', totalValue: '', dealType: 'TradeConnect',
   category: 'motors', contractTerms: '', startDate: '', endDate: '',
 };
 
@@ -55,7 +55,7 @@ export default function ManageDeals() {
     <div style={{ maxWidth: 1100 }}>
       <div className="page-header flex-between">
         <div>
-          <h1>B2B Deals</h1>
+          <h1>TradeConnect Deals</h1>
           <p>Create and manage deals with companies and buyers</p>
         </div>
         <button className="btn btn-accent" onClick={() => setShowForm(s => !s)}>
@@ -91,7 +91,7 @@ export default function ManageDeals() {
               <div className="form-group">
                 <label className="input-label">Deal Type</label>
                 <select className="input" name="dealType" value={form.dealType} onChange={handleChange}>
-                  {['b2b', 'bulk', 'contract', 'one-time'].map(t => <option key={t}>{t}</option>)}
+                  {['TradeConnect', 'bulk', 'contract', 'one-time'].map(t => <option key={t}>{t}</option>)}
                 </select>
               </div>
               <div className="form-group">
@@ -135,7 +135,7 @@ export default function ManageDeals() {
       <div className="card" style={{ padding: 24 }}>
         {deals.length === 0 ? (
           <div className="empty-state">
-            <p>No deals yet. Create your first B2B deal to connect with buyers.</p>
+            <p>No deals yet. Create your first TradeConnect deal to connect with buyers.</p>
           </div>
         ) : (
           <div className="table-wrap">

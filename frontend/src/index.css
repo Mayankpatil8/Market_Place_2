@@ -166,3 +166,23 @@ tbody tr:hover td{background:rgba(255,255,255,0.02)}
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+
+
+/* ===== FIX WHITE SELECT DROPDOWN ===== */
+
+select.input {
+  background-color: var(--surface-2) !important;
+  color: var(--text) !important;
+}
+
+select.input option {
+  background-color: var(--surface-2) !important;
+  color: var(--text) !important;
+}
+
+/* Remove default browser style */
+select.input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
