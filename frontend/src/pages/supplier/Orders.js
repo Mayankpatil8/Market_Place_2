@@ -23,25 +23,43 @@ export default function SupplierOrders() {
     } catch { toast.error('Failed to update status'); }
   };
 
-const paidOrders = orders.filter(o => o.paymentStatus === 'paid');
+  // ✅ Safe revenue calculation (case insensitive + stable)
 
-const totalRevenue = paidOrders.reduce((s, o) => s + (o.totalAmount || 0), 0);
+const paidOrders = orders.filter(
+  o => String(o.paymentStatus || '').toLowerCase().trim() === 'paid'
+);
+
+const totalRevenue = paidOrders.reduce(
+  (sum, o) => sum + Number(o.totalAmount || 0),
+  0
+);
 
 const pendingRevenue = orders
-  .filter(o => o.paymentStatus !== 'paid')
-  .reduce((s, o) => s + (o.totalAmount || 0), 0);
+  .filter(o => String(o.paymentStatus || '').toLowerCase().trim() !== 'paid')
+  .reduce((sum, o) => sum + Number(o.totalAmount || 0), 0);
 
 const totalOrders = orders.length;
 
-const thisMonthRevenue = paidOrders
-  .filter(o => {
-    const d = new Date(o.createdAt);
-    const now = new Date();
-    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
-  })
-  .reduce((s, o) => s + (o.totalAmount || 0), 0);
+const thisMonthOrders = orders.filter(o => {
+  const d = new Date(o.createdAt);
+  const now = new Date();
+  return d.getMonth() === now.getMonth() &&
+         d.getFullYear() === now.getFullYear();
+});
 
-const commissionRate = 0.015; // 1.5%
+const handleDelete = async (id) => {
+  if (!window.confirm('Delete this order?')) return;
+
+  try {
+    await API.delete(`/orders/${id}`);
+    toast.success('Order deleted');
+    fetchOrders();
+  } catch {
+    toast.error('Failed to delete');
+  }
+};
+
+const commissionRate = 0.015;
 const commission = totalRevenue * commissionRate;
 const netEarnings = totalRevenue - commission;
 

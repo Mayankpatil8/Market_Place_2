@@ -81,19 +81,26 @@ router.get('/', protect, authorize('admin'), async (req, res) => {
 });
 
 // @PUT /api/orders/:id/status — admin/supplier update
-router.put('/:id/status', protect, authorize('admin', 'supplier'), async (req, res) => {
+router.put('/:id/status', async (req, res) => {
   try {
-    const { status, note } = req.body;
     const order = await Order.findById(req.params.id);
-    if (!order) return res.status(404).json({ success: false, message: 'Order not found' });
-    order.status = status;
-    if (status === 'delivered') order.paymentStatus = 'paid';
-    order.timeline.push({ status, note: note || `Status updated to ${status}` });
+    if (!order) return res.status(404).json({ message: 'Order not found' });
+
+    order.status = req.body.status;
+
+    // ✅ Auto mark as paid when delivered
+    if (req.body.status === 'delivered') {
+      order.paymentStatus = 'paid';
+    }
+
     await order.save();
+
     res.json({ success: true, order });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ message: 'Server error' });
   }
 });
+
+
 
 module.exports = router;
