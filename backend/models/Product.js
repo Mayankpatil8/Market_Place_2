@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema(
     description: { type: String, required: true },
     category: {
       type: String,
-      enum: ['motors', 'semiconductors', 'defence', 'electronics', 'mechanical', 'other'],
+      enum: ['motors', 'semiconductors', 'defence', 'electronics', 'mechanical', 'automation', 'hydraulics', 'sensors', 'other'],
       required: true,
     },
     subcategory: { type: String },
