@@ -3,7 +3,7 @@ import API from '../../utils/api';
 import { toast } from 'react-toastify';
 import { FiFilter, FiArrowRight, FiZap, FiBriefcase, FiCheck } from 'react-icons/fi';
 
-const DEAL_TYPES = ['', 'b2b', 'bulk', 'contract', 'one-time'];
+const DEAL_TYPES = ['', 'TradeConnect', 'bulk', 'contract', 'one-time'];
 const STATUS_MAP = { proposed: 'badge-gold', negotiating: 'badge-cyan', agreed: 'badge-blue', 'in-progress': 'badge-green', completed: 'badge-green', cancelled: 'badge-red' };
 
 export default function DealBoard() {
@@ -35,7 +35,7 @@ export default function DealBoard() {
     <div style={{ maxWidth: 1100 }}>
       <div className="page-header flex-between">
         <div>
-          <h1>TradeConnect Board 🤝</h1>
+          <h1>TradeConnect Deal Board 🤝</h1>
           <p>Open deals from verified suppliers — claim a deal to start negotiation</p>
         </div>
         <select className="input" style={{ width: 160 }} value={type} onChange={e => setType(e.target.value)}>

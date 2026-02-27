@@ -20,7 +20,7 @@ const CATEGORIES = [
 ];
 
 const FEATURES = [
-  { icon: '🤝', title: 'Real-Time Deal Board', desc: 'Structured B2B proposals from verified suppliers — claim, negotiate, close. All documented.' },
+  { icon: '🤝', title: 'Real-Time Deal Board', desc: 'Structured TradeConnect proposals from verified suppliers — claim, negotiate, close. All documented.' },
   { icon: '🏅', title: 'Certification Services', desc: 'ISO · CE · ATEX · MIL-SPEC. Full document preparation and audit management.' },
   { icon: '🧠', title: 'AI Matching Engine', desc: 'Proprietary recommendation system learns your profile and surfaces ideal deals before you search.' },
   { icon: '⚖', title: 'Compliance by Default', desc: 'GDPR compliant. GST/VAT invoicing. LkSG due diligence. Every trade legally protected.' },

@@ -68,7 +68,7 @@ export default function Suggestions() {
 
       {/* Open Deals */}
       <section style={{marginBottom:40}}>
-        <h2 style={{fontFamily:'Syne',fontSize:20,marginBottom:20}}>🤝 Open TradeConnects for You</h2>
+        <h2 style={{fontFamily:'Syne',fontSize:20,marginBottom:20}}>🤝 Open TradeConnect Deals for You</h2>
         {deals.length === 0 ? (
           <div className="empty-state"><p>No open deals available right now. Check back later!</p></div>
         ) : (

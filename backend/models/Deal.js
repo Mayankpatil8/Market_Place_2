@@ -18,7 +18,7 @@ const dealSchema = new mongoose.Schema(
     platformFee: { type: Number },
     supplierEarning: { type: Number },
     category: { type: String },
-    dealType: { type: String, enum: ['b2b', 'bulk', 'contract', 'one-time'], default: 'b2b' },
+    dealType: { type: String, enum: ['TradeConnect', 'bulk', 'contract', 'one-time'], default: 'TradeConnect' },
     status: {
       type: String,
       enum: ['proposed', 'negotiating', 'agreed', 'in-progress', 'completed', 'cancelled'],

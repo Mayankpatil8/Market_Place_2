@@ -87,7 +87,7 @@ export default function PublicLayout() {
               </div>
             </div>
             <p className="pub-footer__desc">
-              Europe's premier B2B industrial marketplace. Connecting manufacturers, suppliers, and buyers since 2019. ISO 9001 · CE Certified · GDPR Compliant.
+              Europe's premier TradeConnect industrial marketplace. Connecting manufacturers, suppliers, and buyers since 2019. ISO 9001 · CE Certified · GDPR Compliant.
             </p>
             <div className="pub-footer__certs">
               <span>🏅 ISO 9001:2015</span>

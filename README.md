@@ -1,4 +1,4 @@
-# 🏭 IndustrialHub — B2B/B2C Marketplace (MERN Stack)
+# 🏭 IndustrialHub — TradeConnect/B2C Marketplace (MERN Stack)
 
 A full-featured industrial marketplace platform with customer, supplier, and admin portals, AI-powered suggestions, real-time deal management, and complete profit & loss analytics.
 

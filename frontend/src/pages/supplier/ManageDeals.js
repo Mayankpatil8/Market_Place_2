@@ -3,7 +3,7 @@ import API from '../../utils/api';
 import { toast } from 'react-toastify';
 import { FiPlus } from 'react-icons/fi';
 
-const EMPTY = { title:'', description:'', totalValue:'', dealType:'b2b', category:'motors', contractTerms:'', startDate:'', endDate:'' };
+const EMPTY = { title:'', description:'', totalValue:'', dealType:'TradeConnect', category:'motors', contractTerms:'', startDate:'', endDate:'' };
 const STATUS_COLORS = { proposed:'yellow', negotiating:'cyan', agreed:'blue', 'in-progress':'green', completed:'green', cancelled:'red' };
 
 export default function ManageDeals() {
@@ -44,7 +44,7 @@ export default function ManageDeals() {
     <div style={{maxWidth:1100}}>
       <div className="page-header flex-between">
         <div>
-          <h1>TradeConnects</h1>
+          <h1>TradeConnect Deals</h1>
           <p>Create and manage deals with companies and startups</p>
         </div>
         <button className="btn btn-accent" onClick={()=>setShowForm(!showForm)}><FiPlus/> {showForm?'Cancel':'Create Deal'}</button>
@@ -62,7 +62,7 @@ export default function ManageDeals() {
             <div className="form-row">
               <div className="form-group"><label className="input-label">Deal Type</label>
                 <select className="input" name="dealType" value={form.dealType} onChange={handleChange}>
-                  {['b2b','bulk','contract','one-time'].map(t=><option key={t}>{t}</option>)}
+                  {['TradeConnect','bulk','contract','one-time'].map(t=><option key={t}>{t}</option>)}
                 </select>
               </div>
               <div className="form-group"><label className="input-label">Category</label>
@@ -86,7 +86,7 @@ export default function ManageDeals() {
 
       <div className="card" style={{padding:24}}>
         {deals.length === 0 ? (
-          <div className="empty-state"><p>No deals yet. Create your first TradeConnect to connect with companies.</p></div>
+          <div className="empty-state"><p>No deals yet. Create your first TradeConnect deal to connect with companies.</p></div>
         ) : (
           <div className="table-wrap">
             <table>

@@ -30,9 +30,9 @@ const SERVICES = [
     tag: 'Commercial Strategy',
     title: 'Business Model Design',
     subtitle: 'Structure that survives scale.',
-    desc: 'Our commercial strategists help suppliers and buyers design revenue frameworks built for European B2B markets — from distribution contracts to platform-native deal structures and joint ventures.',
+    desc: 'Our commercial strategists help suppliers and buyers design revenue frameworks built for European TradeConnect markets — from distribution contracts to platform-native deal structures and joint ventures.',
     features: [
-      'B2B Distribution Framework Design',
+      'TradeConnect Distribution Framework Design',
       'OEM & White-Label Agreements',
       'Revenue Share & Commission Models',
       'Subscription Procurement Contracts',
@@ -317,7 +317,7 @@ export default function Services() {
                 The right business<br /><em>model changes everything.</em>
               </h2>
               <p className="eu-lead" style={{ marginTop: 20, marginBottom: 36 }}>
-                Choosing the wrong commercial structure costs years. Our strategists have designed and deployed 40+ B2B business models across European industrial markets — from distribution frameworks to platform-native revenue share contracts.
+                Choosing the wrong commercial structure costs years. Our strategists have designed and deployed 40+ TradeConnect business models across European industrial markets — from distribution frameworks to platform-native revenue share contracts.
               </p>
               {[
                 { label: 'OEM & White Label', desc: "Manufacture under buyer's brand with legal protections built in." },                { label: 'Joint Venture Frameworks', desc: 'Shared risk, shared reward — properly structured.' },

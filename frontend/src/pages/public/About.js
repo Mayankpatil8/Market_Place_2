@@ -7,7 +7,7 @@ const TEAM = [
     name: 'Klaus Hartmann',
     role: 'Chief Executive Officer',
     location: 'Frankfurt, Germany',
-    bio: 'Former Siemens VP with 22 years in industrial supply chain. Founded IndustrialHub to digitise what he saw failing — fragmented B2B procurement across Europe.',
+    bio: 'Former Siemens VP with 22 years in industrial supply chain. Founded IndustrialHub to digitise what he saw failing — fragmented TradeConnect procurement across Europe.',
     avatar: 'KH',
     color: '#c9a84c',
     linkedin: '#',
@@ -52,7 +52,7 @@ const TEAM = [
     name: 'Aleksandra Nowak',
     role: 'Head of Growth',
     location: 'Warsaw, Poland',
-    bio: 'Led B2B growth at two unicorns before joining IndustrialHub. Responsible for the supplier onboarding programme that reduced time-to-first-deal to 11 days.',
+    bio: 'Led TradeConnect growth at two unicorns before joining IndustrialHub. Responsible for the supplier onboarding programme that reduced time-to-first-deal to 11 days.',
     avatar: 'AN',
     color: '#fca5a5',
     linkedin: '#',
@@ -109,7 +109,7 @@ export default function About() {
             <em>Built for industry.</em>
           </h1>
           <p className="eu-lead eu-anim-up eu-d2" style={{ maxWidth: 700 }}>
-            We are a Frankfurt-based industrial commerce platform — founded by engineers and operators who lived through the fragmentation of European B2B procurement and decided to fix it.
+            We are a Frankfurt-based industrial commerce platform — founded by engineers and operators who lived through the fragmentation of European TradeConnect procurement and decided to fix it.
           </p>
           <div className="about-hero__ctas eu-anim-up eu-d3">
             <Link to="/register" className="eu-gold-btn">Join the Platform →</Link>

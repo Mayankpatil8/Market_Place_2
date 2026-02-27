@@ -31,7 +31,7 @@ const CONSULTING_SERVICES = [
     category: 'Commercial',
     tagline: 'Build a pipeline that actually converts.',
     description:
-      'From prospect identification to closing frameworks — our commercial consultants redesign your sales motion for European B2B markets. Includes CRM setup, pricing strategy, account tiering, and sales team capability building.',
+      'From prospect identification to closing frameworks — our commercial consultants redesign your sales motion for European TradeConnect markets. Includes CRM setup, pricing strategy, account tiering, and sales team capability building.',
     deliverables: [
       'Go-to-market strategy document',
       'Ideal customer profile (ICP) definition',
@@ -44,7 +44,7 @@ const CONSULTING_SERVICES = [
     duration: '4–8 weeks',
     startingFee: 7200,
     colour: '#7dd3fc',
-    tags: ['B2B Sales', 'Revenue', 'CRM'],
+    tags: ['TradeConnect Sales', 'Revenue', 'CRM'],
   },
   {
     id: 'market_entry',
