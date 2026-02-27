@@ -23,9 +23,27 @@ export default function SupplierOrders() {
     } catch { toast.error('Failed to update status'); }
   };
 
-  const totalRevenue = orders
-    .filter(o => o.paymentStatus === 'paid')
-    .reduce((s, o) => s + (o.totalAmount || 0), 0);
+const paidOrders = orders.filter(o => o.paymentStatus === 'paid');
+
+const totalRevenue = paidOrders.reduce((s, o) => s + (o.totalAmount || 0), 0);
+
+const pendingRevenue = orders
+  .filter(o => o.paymentStatus !== 'paid')
+  .reduce((s, o) => s + (o.totalAmount || 0), 0);
+
+const totalOrders = orders.length;
+
+const thisMonthRevenue = paidOrders
+  .filter(o => {
+    const d = new Date(o.createdAt);
+    const now = new Date();
+    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+  })
+  .reduce((s, o) => s + (o.totalAmount || 0), 0);
+
+const commissionRate = 0.015; // 1.5%
+const commission = totalRevenue * commissionRate;
+const netEarnings = totalRevenue - commission;
 
   return (
     <div style={{ maxWidth: 1100 }}>
@@ -34,12 +52,42 @@ export default function SupplierOrders() {
           <h1>My Orders</h1>
           <p>Orders containing your products</p>
         </div>
-        <div className="card" style={{ padding: '12px 20px', textAlign: 'right' }}>
-          <div style={{ fontSize: 12, color: 'var(--text-2)' }}>Total Revenue (paid)</div>
-          <div style={{ fontFamily: 'Syne', fontSize: 22, fontWeight: 800, color: 'var(--green)' }}>
-            €{Math.round(totalRevenue).toLocaleString()}
-          </div>
-        </div>
+        <div className="page-header flex-between">
+</div>
+
+{/* 👇 PASTE NEW REVENUE BLOCK HERE */}
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+  
+  <div className="card" style={{ padding: 18 }}>
+    <div style={{ fontSize: 11, color: 'var(--text-2)' }}>Total Revenue (Paid)</div>
+    <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--green)' }}>
+      €{Math.round(totalRevenue).toLocaleString()}
+    </div>
+  </div>
+
+  <div className="card" style={{ padding: 18 }}>
+    <div style={{ fontSize: 11, color: 'var(--text-2)' }}>Pending Revenue</div>
+    <div style={{ fontSize: 20, fontWeight: 800, color: '#f59e0b' }}>
+      €{Math.round(pendingRevenue).toLocaleString()}
+    </div>
+  </div>
+
+  <div className="card" style={{ padding: 18 }}>
+    <div style={{ fontSize: 11, color: 'var(--text-2)' }}>Net Earnings (After 1.5%)</div>
+    <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--accent)' }}>
+      €{Math.round(netEarnings).toLocaleString()}
+    </div>
+  </div>
+
+  <div className="card" style={{ padding: 18 }}>
+    <div style={{ fontSize: 11, color: 'var(--text-2)' }}>Orders This Month</div>
+    <div style={{ fontSize: 20, fontWeight: 800 }}>
+      {totalOrders}
+    </div>
+  </div>
+
+</div>
+
       </div>
 
       <div className="card" style={{ padding: 24 }}>

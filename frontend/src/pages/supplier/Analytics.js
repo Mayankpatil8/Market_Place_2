@@ -33,7 +33,22 @@ export default function SupplierAnalytics() {
     });
   }, [user._id]);
 
-  const totalRevenue  = orders.filter(o => o.paymentStatus === 'paid').reduce((s, o) => s + (o.totalAmount || 0), 0);
+const totalRevenue = orders.reduce((sum, order) => {
+  if (order.paymentStatus !== 'paid') return sum;
+
+  const supplierItems = (order.items || []).filter(
+    item =>
+      item.supplier?._id === user._id ||
+      item.supplier === user._id
+  );
+
+  const supplierRevenue = supplierItems.reduce(
+    (s, item) => s + (item.price || 0) * (item.quantity || 0),
+    0
+  );
+
+  return sum + supplierRevenue;
+}, 0);
   const totalDealValue = deals.filter(d => d.status === 'completed').reduce((s, d) => s + (d.totalValue || 0), 0);
   const totalViews    = products.reduce((s, p) => s + (p.views || 0), 0);
 
@@ -43,8 +58,22 @@ export default function SupplierAnalytics() {
     return {
       month: m,
       Orders:  monthOrders.length,
-      Revenue: monthOrders.reduce((s, o) => s + (o.totalAmount || 0), 0),
-    };
+    Revenue: monthOrders.reduce((sum, order) => {
+    if (order.paymentStatus !== 'paid') return sum;
+
+    const supplierItems = (order.items || []).filter(
+    item =>
+      item.supplier?._id === user._id ||
+      item.supplier === user._id
+   );
+
+  const supplierRevenue = supplierItems.reduce(
+    (s, item) => s + (item.price || 0) * (item.quantity || 0),
+    0
+  );
+
+  return sum + supplierRevenue;
+}, 0),    };
   });
 
   const topProducts = [...products].sort((a, b) => (b.totalSold || 0) - (a.totalSold || 0)).slice(0, 6);
