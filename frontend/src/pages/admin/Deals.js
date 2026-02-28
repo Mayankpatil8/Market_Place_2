@@ -43,8 +43,8 @@ export default function AdminDeals() {
                     <td><strong>{d.title}</strong></td>
                     <td>{d.supplier?.company || d.supplier?.name}</td>
                     <td>{d.buyer?.company || d.buyer?.name || <span style={{color:'var(--muted)'}}>Open</span>}</td>
-                    <td><strong>₹{d.totalValue?.toLocaleString()}</strong></td>
-                    <td style={{color:'var(--success)'}}>₹{d.platformFee?.toLocaleString()}</td>
+                    <td><strong>€{d.totalValue?.toLocaleString()}</strong></td>
+                    <td style={{color:'var(--success)'}}>€{d.platformFee?.toLocaleString()}</td>
                     <td><span className="badge badge-blue">{d.dealType}</span></td>
                     <td><span className={`badge badge-${STATUS_COLORS[d.status]||'gray'}`}>{d.status}</span></td>
                     <td>{new Date(d.createdAt).toLocaleDateString('en-IN')}</td>

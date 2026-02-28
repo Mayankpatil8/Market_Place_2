@@ -48,7 +48,7 @@ export default function DealBoard() {
       <div className="grid-4" style={{ marginBottom: 28 }}>
         {[
           { label: 'Open Deals', val: deals.length, color: 'var(--accent)' },
-          { label: 'Total Value', val: `₹${Math.round(deals.reduce((s, d) => s + (d.totalValue || 0), 0) / 100000).toLocaleString()}L`, color: 'var(--cyan)' },
+          { label: 'Total Value', val: `€${Math.round(deals.reduce((s, d) => s + (d.totalValue || 0), 0) / 100000).toLocaleString()}L`, color: 'var(--cyan)' },
           { label: 'Categories', val: new Set(deals.map(d => d.category)).size, color: 'var(--green)' },
           { label: 'Verified Suppliers', val: deals.filter(d => d.supplier?.supplierInfo?.verified).length, color: 'var(--purple)' },
         ].map(s => (
@@ -86,7 +86,7 @@ export default function DealBoard() {
                 <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: 14, marginBottom: 16, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                   <div>
                     <div style={{ fontSize: 10, color: 'var(--text-3)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 4 }}>Deal Value</div>
-                    <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--accent)' }}>₹{d.totalValue?.toLocaleString()}</div>
+                    <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--accent)' }}>€{d.totalValue?.toLocaleString()}</div>
                   </div>
                   <div>
                     <div style={{ fontSize: 10, color: 'var(--text-3)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 4 }}>Category</div>

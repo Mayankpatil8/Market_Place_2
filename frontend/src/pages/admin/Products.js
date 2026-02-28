@@ -77,7 +77,7 @@ export default function AdminProducts() {
                     </td>
                     <td style={{ fontSize: 12, color: 'var(--text-2)' }}>{p.supplier?.company || p.supplier?.name}</td>
                     <td><span className="badge badge-gray">{p.category}</span></td>
-                    <td>₹{p.price?.toLocaleString()}</td>
+                    <td>€{p.price?.toLocaleString()}</td>
                     <td style={{ color: p.stock < 10 ? 'var(--red)' : 'var(--green)', fontWeight: 700 }}>{p.stock}</td>
                     <td>{p.totalSold || 0}</td>
                     <td>{p.views || 0}</td>

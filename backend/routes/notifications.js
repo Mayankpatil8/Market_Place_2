@@ -25,7 +25,7 @@ router.get('/', protect, async (req, res) => {
       orders.forEach(o => notifications.push({
         type: 'new_order',
         title: 'New Order Received',
-        message: `Order ${o.orderNumber} — ₹${o.totalAmount.toLocaleString()}`,
+        message: `Order ${o.orderNumber} — €${o.totalAmount.toLocaleString()}`,
         time: o.createdAt,
         read: false,
       }));

@@ -38,7 +38,7 @@ export default function MyOrders() {
                 <div style={{fontSize:13,color:'var(--muted)'}}>{new Date(o.createdAt).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})}</div>
               </div>
               <div style={{textAlign:'right'}}>
-                <div style={{fontFamily:'Syne',fontSize:18,fontWeight:800}}>₹{o.totalAmount?.toLocaleString()}</div>
+                <div style={{fontFamily:'Syne',fontSize:18,fontWeight:800}}>€{o.totalAmount?.toLocaleString()}</div>
                 <span className={`badge badge-${STATUS_COLORS[o.status]||'gray'}`}>{o.status}</span>
               </div>
             </div>
@@ -49,7 +49,7 @@ export default function MyOrders() {
                 {o.items?.map(item => (
                   <div key={item._id} style={{display:'flex',justifyContent:'space-between',fontSize:14,padding:'8px 0',borderBottom:'1px solid var(--border)'}}>
                     <span><strong>{item.name}</strong> × {item.quantity}</span>
-                    <span>₹{(item.price*item.quantity).toLocaleString()}</span>
+                    <span>€{(item.price*item.quantity).toLocaleString()}</span>
                   </div>
                 ))}
 

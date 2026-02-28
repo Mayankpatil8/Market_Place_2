@@ -56,8 +56,8 @@ export default function AdminOrders() {
                     <td><strong style={{fontSize:12}}>{o.orderNumber}</strong></td>
                     <td>{o.customer?.name}<br/><span style={{fontSize:11,color:'var(--muted)'}}>{o.customer?.email}</span></td>
                     <td>{o.items?.length} item(s)</td>
-                    <td><strong>₹{o.totalAmount?.toLocaleString()}</strong></td>
-                    <td style={{color:'var(--success)'}}>₹{o.platformFee?.toLocaleString()}</td>
+                    <td><strong>€{o.totalAmount?.toLocaleString()}</strong></td>
+                    <td style={{color:'var(--success)'}}>€{o.platformFee?.toLocaleString()}</td>
                     <td><span className={`badge badge-${STATUS_COLORS[o.status]||'gray'}`}>{o.status}</span></td>
                     <td>{new Date(o.createdAt).toLocaleDateString('en-IN')}</td>
                     <td>

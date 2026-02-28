@@ -50,7 +50,7 @@ export default function Suggestions() {
                   <div style={{padding:14}}>
                     <span className="badge badge-blue" style={{marginBottom:8}}>{p.category}</span>
                     <div style={{fontWeight:700,fontSize:13,marginBottom:4}}>{p.name}</div>
-                    <div style={{fontFamily:'Syne',fontSize:18,fontWeight:800}}>₹{p.price?.toLocaleString()}</div>
+                    <div style={{fontFamily:'Syne',fontSize:18,fontWeight:800}}>€{p.price?.toLocaleString()}</div>
                     <div style={{display:'flex',alignItems:'center',gap:4,fontSize:12,color:'var(--accent)',marginTop:4}}><FiStar/>{p.rating?.toFixed(1)||'New'}</div>
                   </div>
                 </Link>
@@ -84,7 +84,7 @@ export default function Suggestions() {
                 <div style={{display:'flex',justifyContent:'space-between',marginBottom:14}}>
                   <div>
                     <div style={{fontSize:11,color:'var(--muted)'}}>Deal Value</div>
-                    <div style={{fontFamily:'Syne',fontSize:18,fontWeight:800}}>₹{d.totalValue?.toLocaleString()}</div>
+                    <div style={{fontFamily:'Syne',fontSize:18,fontWeight:800}}>€{d.totalValue?.toLocaleString()}</div>
                   </div>
                   <div style={{textAlign:'right'}}>
                     <div style={{fontSize:11,color:'var(--muted)'}}>Supplier</div>
